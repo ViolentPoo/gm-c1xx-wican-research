@@ -1,0 +1,20 @@
+# Secrets and credentials
+*.key
+*.pem
+id_ed25519
+id_ed25519.pub
+.env
+secrets*.yaml
+
+# Vehicle/location-sensitive raw logs
+*.blf
+*.asc
+*.pcap
+*.pcapng
+*.log
+
+# Local caches
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.DS_Store

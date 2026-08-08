@@ -1,0 +1,41 @@
+{
+  "label": "Conceptual WiCAN candidate entries - verify exact /load_auto_pid format before use",
+  "warning": "Do not POST this file directly. Load current WiCAN /load_auto_pid, preserve existing entries, then translate these candidates into the exact firmware format.",
+  "standard_pid_candidates": [
+    { "name": "STFT Bank 1", "pid": "0106", "equation": "(B3-128)*100/128", "unit": "%" },
+    { "name": "LTFT Bank 1", "pid": "0107", "equation": "(B3-128)*100/128", "unit": "%" },
+    { "name": "Timing Advance", "pid": "010E", "equation": "(B3/2)-64", "unit": "deg" },
+    { "name": "Barometric Pressure", "pid": "0133", "equation": "B3", "unit": "kPa" },
+    { "name": "Actual Engine Torque", "pid": "0162", "equation": "B3-125", "unit": "%" },
+    { "name": "Engine Reference Torque", "pid": "0163", "equation": "[B3:B4]", "unit": "Nm" }
+  ],
+  "enhanced_did_candidates": [
+    { "name": "Oil Life 1A6D", "pid": "1A6D", "header": "7E0", "response_filter": "7E8", "equation": "B3*100/256", "unit": "%", "validation": "Confirmed against dash at 34%" },
+    { "name": "Air Filter Life", "pid": "2236A7", "header": "7E0", "response_filter": "7E8", "equation": "B4", "unit": "%", "validation": "Confirmed against dash at 85%" },
+    { "name": "Knock Retard Raw", "pid": "2211A6", "header": "7E0", "response_filter": "7E8", "equation": "B4", "unit": "raw", "validation": "RealDash scale found but byte mapping must be validated" }
+  ],
+  "confirmed_can_filters": [
+    {
+      "frame_id": 501,
+      "hex_frame_id": "0x1F5",
+      "parameters": [
+        { "name": "PRNDL_RANGE_CODE", "expression": "B3", "unit": "", "class": "none", "period": "1000", "min": "1", "max": "12", "type": "Default", "send_to": "", "enabled": true },
+        { "name": "PRNDL_MANUAL_FLAG", "expression": "B5", "unit": "", "class": "none", "period": "1000", "min": "0", "max": "2", "type": "Default", "send_to": "", "enabled": true }
+      ],
+      "validation": "Confirmed on live 2022 Enclave HS-CAN. Passive-filter webhook consumers can lag. Mapping is Park 1/0 Reverse 2/0 Neutral 3/0 Drive 4/0 L1-L9 12..4/2."
+    },
+    {
+      "frame_id": 497,
+      "hex_frame_id": "0x1F1",
+      "parameters": [
+        { "name": "PARK_BRAKE_SET", "expression": "(B4&16)/16", "unit": "", "class": "none", "period": "1000", "min": "0", "max": "1", "type": "Default", "send_to": "", "enabled": true }
+      ],
+      "validation": "Confirmed on live 2022 Enclave HS-CAN. 1 means park brake set and 0 means released."
+    }
+  ],
+  "do_not_add_until_confirmed": [
+    { "name": "BCM Door Status DID", "pid": "222122", "header": "241", "response_filter": "641", "reason": "Rejected with 7F 22 31 on live Enclave test" },
+    { "name": "Oil Pressure Active DIDs", "pid": "22115C/221470/221C1B/222344/222345", "header": "7E0", "response_filter": "7E8", "reason": "Returned zero or implausible running values" },
+    { "name": "TPMS Active DIDs", "pid": "22248E/22248F/222490/222491/22C901/22C902", "header": "7E0 or 258", "response_filter": "7E8 or 658", "reason": "Rejected/no data; RFA attempts wedged AutoPID busy" }
+  ]
+}

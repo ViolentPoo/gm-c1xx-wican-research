@@ -1,0 +1,8 @@
+module,request_id,response_id,bus,can_speed,vehicles,platform,confidence,status,source_count,notes
+ECM/PCM,7E0,7E8,HS-CAN/OBD,500K,2022 Buick Enclave,C1XX,Confirmed,working,1,Existing standard/enhanced WiCAN PIDs use this route
+Functional OBD,7DF,7E8,HS-CAN/OBD,500K,2022 Buick Enclave,C1XX,Confirmed,working,1,Standard supported-PID and Mode 09 requests
+BCM,241,641,unknown diagnostic route,unknown,2022 Buick Enclave,C1XX,Confirmed,working,1,ATSH241;ATCRA641; request 1A90 returned VIN prefix 5GAE
+RFA/RCDLR candidate,258,658,body/RFA candidate,unknown,GM C1XX candidate,C1XX,Experimental,candidate,1,Not verified; possible TPMS/keyless module route
+K9_BCM passive,no request,no response,HS-CAN candidate,500K,GM Global A/C1XX candidates,C1XX/Global A,Strongly likely,candidate,2,OpenDBC BCM door/belt and turn-signal frames
+Low-speed GMLAN passive,no request,no response,SW-CAN/low-speed,varies,GM Global A candidate,Global A,Possible,candidate,1,WiCAN Pro supports SW-CAN pin 1 but current config is 500K normal HS/OBD
+TCM candidate from SimpleOBDII,7E2,unknown,HS-CAN/OBD,500K,GM trans temp public PID profile,GM,Possible,candidate,1,SimpleOBDII lists GM Trans Temp 221940 with CANID 7E2; current Enclave WiCAN uses 7E0 successfully so test cautiously only if needed

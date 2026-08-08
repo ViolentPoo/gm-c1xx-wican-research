@@ -1,0 +1,3 @@
+identifier,type,name,reason,evidence,notes
+221155,DID,Oil life,Did not match dash oil life on 2022 Enclave,"Observed response 7E8 04 62 11 55 63; B4 or B4/2.55 did not match dash",Keep raw reference only if needed; not dashboard-trusted
+7BC,header,BCM header as first-choice route,Not verified on this Enclave and conflicts with confirmed BCM route,"ATSH241;ATCRA641; 1A90 returned VIN prefix",May be tested once only after confirmed route/passive options fail
