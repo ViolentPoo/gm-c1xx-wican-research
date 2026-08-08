@@ -1,5 +1,7 @@
 # WiCAN Configuration Guide
 
+For a practical step-by-step workflow, start with `docs/wican-user-guide.md`. This file is a shorter reference for endpoints, current assumptions, and confirmed filter values.
+
 Current known WiCAN state from this project:
 
 - Model: WiCAN Pro / WiCAN-OBD-PRO

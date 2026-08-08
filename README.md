@@ -94,6 +94,7 @@ WiCAN CAN-filter parameter:
 | `data/module-addresses.csv` | Known and candidate module routes. |
 | `output/wican-candidate-config.example.json` | Confirmed WiCAN candidate snippets, including passive CAN filters. |
 | `docs/wican-configuration-guide.md` | WiCAN endpoint and configuration notes. |
+| `docs/wican-user-guide.md` | Practical workflow for using this research with WiCAN. |
 | `docs/validation-guide.md` | Validation workflow for new signals. |
 | `research/raw-notes/live-session-2026-08-06.md` | Raw live-session observations and caveats. |
 
