@@ -2,7 +2,7 @@
 
 Research package for WiCAN OBD-II PID, GM enhanced DID, and passive CAN discovery on GM C1XX vehicles, focused on the 2022 Buick Enclave and related Chevrolet Traverse, GMC Acadia, Cadillac XT5, and Cadillac XT6 models.
 
-This repository is intended to help people searching for practical WiCAN and GM C1XX telemetry references such as 2022 Buick Enclave OBD2 PIDs, GM 9T65 transmission temperature PID data, Buick Enclave oil life PID validation, GM passive CAN PRNDL `0x1F5`, and GM park brake CAN `0x1F1`.
+It includes confirmed examples for oil life, air filter life, transmission temperature, engine oil temperature, odometer, passive PRNDL/range on CAN `0x1F5`, and park brake state on CAN `0x1F1`.
 
 Primary goals:
 
@@ -68,21 +68,6 @@ WiCAN CAN-filter parameter:
 | Parameter | Expression | Meaning |
 |---|---|---|
 | `PARK_BRAKE_SET` | `(B4&16)/16` | `1` when park brake is set, `0` when released. |
-
-## Useful Search Terms
-
-- 2022 Buick Enclave OBD2 PIDs
-- Buick Enclave WiCAN PID
-- GM C1XX WiCAN research
-- GM C1XX passive CAN
-- GM 9T65 transmission temperature PID
-- Buick Enclave oil life PID
-- GM air filter life PID
-- GM passive CAN PRNDL 0x1F5
-- GM park brake CAN 0x1F1
-- Chevrolet Traverse 221940 transmission temperature
-- Cadillac XT5 LGX 9T65 scan tool data
-- GMC Acadia C1XX CAN bus
 
 ## Data Layout
 
